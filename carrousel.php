@@ -61,8 +61,25 @@ function flickr_carrousel_shortcode()
         }
     }
 
+    // Prepare html output
     if (!empty($photos)) {
-        var_dump($photos);
+        $output = '<div class="flickr-carrousel">';
+
+        // Read photos array and get url
+        foreach ($photos as $index => $photo) {
+            if ($index == 0) {
+                $output = "<img src='$photo->url' class='active' title='$photo->title'>";
+            } else
+                $output = "<img src='$photo->url' title='$photo->title'>";
+        }
+
+        $output = '</div>';
+
+        // Add Carrousel control
+        $output .= "<button class='flickr_carrousel_prev'>Précédent</button>
+                    <button class='flickr_carrousel_next'>Suivant</button>";
+
+        return $output;
     }
 }
 
@@ -72,6 +89,7 @@ add_action('wp_head', 'flickr_carrousel_header');
 
 function flickr_carrousel_header()
 {
-    echo "<script src='" . plugins_url('assets/js/jquery-3.6.4.min.js', __FILE__) . "'></script>";
     echo "<link rel='stylesheet' href='" . plugins_url("assets/css/style.css", __FILE__) . "'>";
+    echo "<script src='" . plugins_url('assets/js/jquery-3.6.4.min.js', __FILE__) . "'></script>";
+    echo "<script src='" . plugins_url('assets/js/flickr-carrousel-script.js', __FILE__) . "'></script>";
 }
