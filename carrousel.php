@@ -22,7 +22,7 @@ function flickr_carrousel_shortcode()
     // Query params
     $params = array(
         'api_key' => 'f12373b3043508a517277becdab9b47a',
-        'method' => 'flickr.photos.search',
+        'method' => 'flickr.photos.getRecent',
         'tags' => "paysage",
         'per_page' => '5',
         'format' => 'json'
@@ -79,7 +79,6 @@ function flickr_carrousel_shortcode()
         $output .= "<button class='flickr_carrousel_prev'>Précédent</button>
                     <button class='flickr_carrousel_next'>Suivant</button>";
 
-        var_dump($output);
         return $output;
 
     }
