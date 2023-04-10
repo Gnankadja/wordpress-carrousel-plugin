@@ -67,19 +67,21 @@ function flickr_carrousel_shortcode()
 
         // Read photos array and get url
         foreach ($photos as $index => $photo) {
-            if ($index == 0) {
-                $output = "<img src='$photo->url' class='active' title='$photo->title'>";
-            } else
-                $output = "<img src='$photo->url' title='$photo->title'>";
+            if ($index == 0)
+                $output .= "<img src='" . $photo['url'] . "' class='active' title='" . $photo['title'] . "'>";
+            else
+                $output .= "<img src='" . $photo['url'] . "' title='" . $photo['title'] . "'>";
         }
 
-        $output = '</div>';
+        $output .= '</div>';
 
         // Add Carrousel control
         $output .= "<button class='flickr_carrousel_prev'>Précédent</button>
                     <button class='flickr_carrousel_next'>Suivant</button>";
 
+        var_dump($output);
         return $output;
+
     }
 }
 
