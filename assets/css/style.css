@@ -21,9 +21,9 @@
     top: 50%;
     transform: translateY(-50%);
   }
-  .flickr-carrousel button.prev {
+  .flickr-carrousel button.flickr_carrousel_prev {
     left: 0;
   }
-  .flickr-carrousel button.next {
+  .flickr-carrousel button.flickr_carrousel_next {
     right: 0;
   }
